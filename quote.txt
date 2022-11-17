@@ -9,12 +9,10 @@ SwitchBot API v1.1
 OpenWonderLabs
 https://github.com/OpenWonderLabs/SwitchBotAPI
 
-
 get_deviceの参考
 [Switchbot API v1.1が登場] APIでSwitchBotロックを遠隔操作する
 @masaki12-s
 https://qiita.com/masaki12-s/items/0295a96fd5a70442f7d5
-
 
 light_off/on の参考
 スイッチボットをPythonから操作
