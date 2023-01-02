@@ -6,20 +6,26 @@ import switchbot_sign
 
 
 
-def main():
+error_arg_message = "Argument Error: Should Enter Argument\n" \
+                    "    1st arg... mode(h/c/d/0)\n" \
+                    "    2nd arg... temperature (if turn off then don't type)\n" \
+                    "\n" \
+                    "    python airconditioner.py h 23    <- hot 23°C\n" \
+                    "    python airconditioner.py c 19    <- cold 19°C\n" \
+                    "    python airconditioner.py 0       <- Turn Off\n"
 
-    device_id = id.airconditioner
-    headers = switchbot_sign.make_header(id.token, id.secret)
-    url = "https://api.switch-bot.com/v1.1/devices/" + device_id + "/commands"
+device_id = id.airconditioner
+headers = switchbot_sign.make_header(id.token, id.secret)
+url = "https://api.switch-bot.com/v1.1/devices/" + device_id + "/commands"
+
+
+
+def main():
 
     try:
         mode = sys.argv[1]
     except:
-        print("Argument Error: Should Enter Argument;")
-        print("    1st arg... h:hot / c:cold / d:dry / 0:off")
-        print("    2nd arg... temperature (if turn off then type \"0\")")
-        print("    $ python airconditioner.py h 21  <-example")
-        exit()
+        print(error_arg_message)
 
     if mode=="h" or mode=="c" or mode=="d":
         body = make_body_turnon(mode)
@@ -39,14 +45,13 @@ def make_body_turnon(mode):
     elif mode == "d":
         mode = "3"
     else:
-        print("Argument Error: Should Enter Argument;")
-        print("    1st arg... h:hot / c:cold / d:dry / 0:off")
-        print("    2nd arg... temperature (if turn off then type \"0\")")
-        print("    $ python airconditioner.py h 21  <-example")
-        exit()
+        print(error_arg_message)
 
     # 温度取得
-    temperature = sys.argv[2]
+    try:
+        temperature = sys.argv[2]
+    except:
+        print(error_arg_message)
 
     # パラメータ作成
     parameter = temperature+","+mode+",1,on"
