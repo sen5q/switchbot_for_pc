@@ -1,7 +1,7 @@
-*comment
-*Web Page Name
-*Author
-*webpage url
+* comment
+* Web Page Name
+* Author
+* webpage url
 
 
 公式ドキュメント
@@ -18,3 +18,8 @@ light_off/on の参考
 スイッチボットをPythonから操作
 はなまる
 https://note.com/izumisano/n/nde407bce3a5d
+
+バックスラッシュで改行を無視
+Pythonで長い文字列を複数行に分けて書く
+nkmk
+https://note.nkmk.me/python-long-string/
